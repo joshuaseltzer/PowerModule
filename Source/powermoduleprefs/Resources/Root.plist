@@ -100,7 +100,7 @@
 			<key>key</key>
 			<string>UICacheConf</string>
 			<key>label</key>
-			<string>UICache confirmation</string>
+			<string>Relayout Icons confirmation</string>
 		</dict>
 		<dict>
 			<key>cell</key>

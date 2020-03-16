@@ -1,11 +1,5 @@
 #import "PowerUIModuleContentViewController.h"
 #import "PMButtonViewController.h"
-#import "RespringButtonController.h"
-#import "RebootButtonController.h"
-#import "SafemodeButtonController.h"
-#import "UICacheButtonController.h"
-#import "PowerDownButtonController.h"
-#import "LockButtonController.h"
 
 @implementation PowerUIModuleContentViewController
 -(instancetype)initWithSmallSize:(BOOL)small
@@ -29,8 +23,12 @@
         [self setupButtonViewController:_respringBtn title:@"Respring" hidden:NO];
 
         //initialize UICacheBtn
-        _UICacheBtn = [[UICacheButtonController alloc] initWithGlyphImage:[UIImage imageNamed:@"UICache" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil] highlightColor:[UIColor greenColor] useLightStyle:YES];
-        [self setupButtonViewController:_UICacheBtn title:@"UICache" hidden:_small];
+        //_UICacheBtn = [[UICacheButtonController alloc] initWithGlyphImage:[UIImage imageNamed:@"UICache" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil] highlightColor:[UIColor greenColor] useLightStyle:YES];
+        //[self setupButtonViewController:_UICacheBtn title:@"UICache" hidden:_small];
+
+        //initialize RelayoutIconsBtn
+        _relayoutBtn = [[RelayoutButtonController alloc] initWithGlyphImage:[UIImage imageNamed:@"Relayout" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil] highlightColor:[UIColor greenColor] useLightStyle:YES];
+        [self setupButtonViewController:_relayoutBtn title:@"Relayout Icons" hidden:_small];
 
         //initialize rebootBtn
         _rebootBtn = [[RebootButtonController alloc]initWithGlyphImage:[UIImage imageNamed:@"Reboot" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil] highlightColor:[UIColor greenColor] useLightStyle:YES];
@@ -38,11 +36,13 @@
 
         //initialize safemodeBtn
         _safemodeBtn = [[SafemodeButtonController alloc] initWithGlyphImage:[UIImage imageNamed:@"Safemode" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil] highlightColor:[UIColor greenColor] useLightStyle:YES];
-        [self setupButtonViewController:_safemodeBtn title:@"Safemode" hidden:_small];
+        //[self setupButtonViewController:_safemodeBtn title:@"Safemode" hidden:_small];
+        [self setupButtonViewController:_safemodeBtn title:@"Safemode" hidden:YES];
 
         //initialize powerDownBtn
         _powerDownBtn = [[PowerDownButtonController alloc]initWithGlyphImage:[UIImage imageNamed:@"Power" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil] highlightColor:[UIColor greenColor] useLightStyle:YES];
-        [self setupButtonViewController:_powerDownBtn title:@"Power Down" hidden:YES];
+        //[self setupButtonViewController:_powerDownBtn title:@"Power Down" hidden:YES];
+        [self setupButtonViewController:_powerDownBtn title:@"Power Down" hidden:_small];
 
         //initialize lockBtn
         _lockBtn = [[LockButtonController alloc]initWithGlyphImage:[UIImage imageNamed:@"Lock" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil] highlightColor:[UIColor greenColor] useLightStyle:YES];
@@ -108,14 +108,22 @@
     //reposition buttons:
     _respringBtn.centerXConstraint.constant = smallCenter;
     _respringBtn.topConstraint.constant = padding;
-    _UICacheBtn.centerXConstraint.constant = size.width - smallCenter;
-    _UICacheBtn.topConstraint.constant = padding;
-    _rebootBtn.centerXConstraint.constant = size.width - smallCenter;
+    //_UICacheBtn.centerXConstraint.constant = size.width - smallCenter;
+    //_UICacheBtn.topConstraint.constant = padding;
+    _relayoutBtn.centerXConstraint.constant = size.width - smallCenter;
+    _relayoutBtn.topConstraint.constant = padding;
+    //_rebootBtn.centerXConstraint.constant = size.width - smallCenter;
+    //_rebootBtn.topConstraint.constant = 2 * padding + btnSize;
+    _rebootBtn.centerXConstraint.constant = smallCenter;
     _rebootBtn.topConstraint.constant = 2 * padding + btnSize;
+    //_safemodeBtn.centerXConstraint.constant = smallCenter;
+    //_safemodeBtn.topConstraint.constant = 2 * padding + btnSize;
     _safemodeBtn.centerXConstraint.constant = smallCenter;
-    _safemodeBtn.topConstraint.constant = 2 * padding + btnSize;
-    _powerDownBtn.centerXConstraint.constant = smallCenter;
-    _powerDownBtn.topConstraint.constant = 3 * padding + 2 * btnSize;
+    _safemodeBtn.topConstraint.constant = 3 * padding + 2 * btnSize;
+    //_powerDownBtn.centerXConstraint.constant = smallCenter;
+    //_powerDownBtn.topConstraint.constant = 3 * padding + 2 * btnSize;
+    _powerDownBtn.centerXConstraint.constant = size.width - smallCenter;
+    _powerDownBtn.topConstraint.constant = 2 * padding + btnSize;
     _lockBtn.centerXConstraint.constant = size.width - smallCenter;
     _lockBtn.topConstraint.constant = 3 * padding + 2 * btnSize;
 }
@@ -142,14 +150,22 @@
     //reposition buttons:
     _respringBtn.centerXConstraint.constant = xCenterLeft;
     _respringBtn.topConstraint.constant = ySpacing;
-    _UICacheBtn.centerXConstraint.constant = xCenterRight;
-    _UICacheBtn.topConstraint.constant = ySpacing;
-    _rebootBtn.centerXConstraint.constant = xCenterRight;
+    //_UICacheBtn.centerXConstraint.constant = xCenterRight;
+    //_UICacheBtn.topConstraint.constant = ySpacing;
+    _relayoutBtn.centerXConstraint.constant = xCenterRight;
+    _relayoutBtn.topConstraint.constant = ySpacing;
+    //_rebootBtn.centerXConstraint.constant = xCenterRight;
+    //_rebootBtn.topConstraint.constant = 2 * ySpacing + newBtnHeight;
+    _rebootBtn.centerXConstraint.constant = xCenterLeft;
     _rebootBtn.topConstraint.constant = 2 * ySpacing + newBtnHeight;
+    //_safemodeBtn.centerXConstraint.constant = xCenterLeft;
+    //_safemodeBtn.topConstraint.constant = 2 * ySpacing + newBtnHeight;
     _safemodeBtn.centerXConstraint.constant = xCenterLeft;
-    _safemodeBtn.topConstraint.constant = 2 * ySpacing + newBtnHeight;
-    _powerDownBtn.centerXConstraint.constant = xCenterLeft;
-    _powerDownBtn.topConstraint.constant = 3 * ySpacing + 2 * newBtnHeight;
+    _safemodeBtn.topConstraint.constant = 3 * ySpacing + 2 * newBtnHeight;
+    //_powerDownBtn.centerXConstraint.constant = xCenterLeft;
+    //_powerDownBtn.topConstraint.constant = 3 * ySpacing + 2 * newBtnHeight;
+    _powerDownBtn.centerXConstraint.constant = xCenterRight;
+    _powerDownBtn.topConstraint.constant = 2 * ySpacing + newBtnHeight;
     _lockBtn.centerXConstraint.constant = xCenterRight;
     _lockBtn.topConstraint.constant = 3 * ySpacing + 2 * newBtnHeight;
 }
