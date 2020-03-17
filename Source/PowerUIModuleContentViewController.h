@@ -3,8 +3,7 @@
 #import "RespringButtonController.h"
 #import "RebootButtonController.h"
 #import "SafemodeButtonController.h"
-//#import "UICacheButtonController.h"
-#import "RelayoutButtonController.h"
+#import "UICacheButtonController.h"
 #import "PowerDownButtonController.h"
 #import "LockButtonController.h"
 
@@ -19,8 +18,7 @@
 //these are the UIViewControllers for the buttons that are added to the module - each one inherits from PMButtonViewController
 @property (nonatomic, strong) RespringButtonController* respringBtn;
 @property (nonatomic, strong) RebootButtonController* rebootBtn;
-//@property (nonatomic, strong) UICacheButtonController* UICacheBtn;
-@property (nonatomic, strong) RelayoutButtonController* relayoutBtn;
+@property (nonatomic, strong) UICacheButtonController* UICacheBtn;
 @property (nonatomic, strong) SafemodeButtonController* safemodeBtn;
 @property (nonatomic, strong) LockButtonController* lockBtn;
 @property (nonatomic, strong) PowerDownButtonController* powerDownBtn;
