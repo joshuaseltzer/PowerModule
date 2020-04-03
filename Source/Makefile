@@ -9,8 +9,8 @@ PowerModule_FILES = $(wildcard *.m)
 PowerModule_LDFLAGS = Frameworks/ControlCenterUIKit.tbd
 PowerModule_INSTALL_PATH = /Library/ControlCenter/Bundles/
 
-THEOS_PACKAGE_BASE_VERSION = 1.3.0-cobra2168
-_THEOS_INTERNAL_PACKAGE_VERSION = 1.3.0-cobra2168
+THEOS_PACKAGE_BASE_VERSION = 1.3.1-cobra2168
+_THEOS_INTERNAL_PACKAGE_VERSION = 1.3.1-cobra2168
 
 include $(THEOS_MAKE_PATH)/bundle.mk
 
